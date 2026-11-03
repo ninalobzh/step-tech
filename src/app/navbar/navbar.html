@@ -1,0 +1,42 @@
+<header class="navbar">
+  <div class="navbar__inner">
+    <a href="#" class="logo">
+      <span class="logo__icon">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="7" width="18" height="13" rx="2" />
+          <path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2" />
+          <path d="M9 12v4M15 12v4" />
+        </svg>
+      </span>
+      <span class="logo__text">STEP TECH</span>
+    </a>
+
+    <nav class="menu" [class.menu--open]="menuOpen">
+      <a href="#" class="menu__link menu__link--active" (click)="closeMenu()">Home</a>
+      <a href="#" class="menu__link" (click)="closeMenu()">Shop</a>
+
+      <div class="dropdown">
+        <button type="button" class="menu__link dropdown__toggle">
+          Categories
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+        <ul class="dropdown__list">
+          @for (category of categories; track category) {
+            <li><a href="#" (click)="closeMenu()">{{ category }}</a></li>
+          }
+        </ul>
+      </div>
+
+      <input type="search" class="search" placeholder="Search products..." />
+      <a href="#" class="btn-signin menu__signin">Sign In</a>
+    </nav>
+
+    <a href="#" class="btn-signin navbar__signin">Sign In</a>
+
+    <button type="button" class="burger" aria-label="Toggle menu" (click)="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
